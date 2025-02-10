@@ -1,7 +1,20 @@
+
+%Please remember to recompile in the following order if you are updating bibtex:
+%pdfLaTex
+%bibtex
+%pdfLaTex
+%Close the PDF
+%pdfLaTex one last time.
+
+%for the acronyms please remember that after you generate one a .acn file will be made, use the following command to compile it.
+%makeindex John_Sabino_Thesis.acn -s John_Sabino_Thesis.ist -o John_Sabino_Thesis.gls
+%Then re-compile the main Latex file twice to have it properly inserted for the List of abbreviations.
+
+
 % No need to change the first 4 lines of this file
-\documentclass{uicthesi}
-\input{sections/other/__preamble}
-\input{sections/other/__commands}
+\documentclass{uicthesi}			% This is the template itself.
+\input{sections/other/__preamble} 		% Sets up what packages we are using and any additional configurations.
+\input{sections/other/__commands}	% If you want to have commands, but I never found a need for it.
 \begin{document}
 
 % The title of the thesis
@@ -11,10 +24,11 @@
 \author{Sheena The Punk Rocker}
 
 % Mention all degrees you hold currently
-\pdegrees{B.A., Rock n' Roll High School, 1976}
+\pdegrees{B.S., University of Illinois at Chicago, 2015 \\
+M.S., University of Illinois Chicago, 2024 }
 
 % Probably no need to edit this
-\degree{Doctor of Philosophy in Computer Science}
+\degree{Doctor of Philosophy in Electrical and Computer Engineering}
 
 % Add your committee members, one per line, mentioning external universities
 % where relevant
@@ -34,7 +48,8 @@ Danizg, New York University}
 \tableofcontents
 \listoftables
 \listoffigures
-\printglossary[type=\acronymtype,title=LIST OF ABBREVIATIONS,style=clong]
+%\printglossary[type=\acronymtype,title=LIST OF ABBREVIATIONS,style=clong] %This is the old abbreviation table generation, it did not work last I checked.
+\printglossary[title=LIST OF ABBREVIATIONS, nonumberlist] %The new version of the abbreviation table.
 \input{sections/other/_4_summary}
 
 % This is where you write the paper.  I've included a sample chapter
@@ -45,7 +60,7 @@ Danizg, New York University}
 % No need to make any changes to this file below this line.
 \newpage
 \bibformb
-\bibliography{thesis}
+\bibliography{thesis} %This reads the thesis.bib file. You can change the name and path here if you want.
 \newpage
 \input{sections/other/_5_vita}
 \end{document}

@@ -9,7 +9,8 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{euler}
-\usepackage[xindy={glsnumbers=false},nonumberlist,acronym,nopostdot,nogroupskip,nomain]{glossaries}
+%\usepackage[xindy={glsnumbers=false},nonumberlist,acronym,nopostdot,nogroupskip,nomain]{glossaries}
+\usepackage[acronym]{glossaries}
 \usepackage{xspace}
 \usepackage[htt]{hyphenat}
 \usepackage{float}
@@ -17,8 +18,38 @@
 \usepackage{footnote}
 \usepackage{enumitem}
 \usepackage{url}
-\usepackage{caption}
+%\usepackage{caption} %Just taking this out to stop the warnings, it appears it does not need it to build the document.
 \usepackage{graphicx}
+
+%This is to give more utility to the bibliography sections:
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{bibtex/references}
+
+%Packages from the JMEMS paper:
+\usepackage{amsmath}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{array}
+%\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+%\usepackage{url}
+\usepackage{verbatim}
+%\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{siunitx}
+\usepackage{cuted}
+%\usepackage{float}
+
+
+%\setacronymstyle{long-short}
+
+%for the acronyms please remember that after you generate one a .acn file will be made, use the following command to compile it.
+%makeindex John_Sabino_Thesis.acn -s John_Sabino_Thesis.ist -o John_Sabino_Thesis.gls
+%Then re-compile the main Latex file twice to have it properly inserted for the List of abbreviations.
+
+%This is from ChatGPT to make standard figures have double spaced text.
+%\captionsetup{font={stretch=2}}
 
 \newglossarystyle{clong}{%
  \renewenvironment{theglossary}%
@@ -36,6 +67,7 @@
 \makesavenoteenv{tabular}
 \makesavenoteenv{table}
 
+\makeglossaries
 \input{sections/other/__abbrs}
 \def\new@fontshape#1#2#3#4#5{\expandafter
      \edef\csname#1/#2/#3\endcsname{\expandafter\noexpand
@@ -70,4 +102,4 @@
 \def\newfont#1#2{\@ifdefinable #1{\font #1=#2\relax}}
 \def\symbol#1{\char #1\relax}
 
-\makeglossaries
+%\makeglossaries
