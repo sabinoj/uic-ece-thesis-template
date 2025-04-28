@@ -330,11 +330,23 @@
 % \subsection{List of Abbreviations}
 %    \begin{macrocode}
 \def\listofabbreviations{
+   \pagestyle{empty}
    \clearpage
    \typeout{LIST OF ABBREVIATIONS.}
-   \def\section@mark{LIST OF ABBREVIATIONS}
-   \@makeprelimhead}
+	 
+%%   \def\section@mark{LIST OF ABBREVIATIONS}
+   \def\headmark{\vbox{
+        \hbox to \textwidth{\large\bfseries \hfil {LIST OF ABBREVIATIONS
+           (Continued) \hfil}}}}
+	\pagestyle{continued}
+	%\list@of@tabs
+	%\newpage
+	\printglossary[title=LIST OF ABBREVIATIONS, nonumberlist]
+  %% \@makeprelimhead}
+}
 %    \end{macrocode}
+
+
 %
 % \subsection{Vita}
 %    \begin{macrocode}
@@ -343,10 +355,16 @@
    \addtocontents{toc}{\protect\addvspace{\baselineskip}}
    \addcontentsline{toc}{chapter}
       {\protect\xnumberline{\ }VITA}
-   \def\section@mark{VITA}
-   \pagestyle{pageontop}
-   \thispagestyle{pageonbottom}
-   \@makeschapterhead{\section@mark}\par}
+   %\def\section@mark{VITA}
+     \def\headmark{\vbox{
+        \hbox to \textwidth{\large\bfseries \hfil {VITA
+           (Continued) \hfil}}}}
+	\pagestyle{continued}
+   %\pagestyle{pageonbottom}
+   %\pagestyle{pageontop}
+   %\thispagestyle{pageonbottom}
+   %\@makeschapterhead{\section@mark}\par}
+}
 %    \end{macrocode}
 %
 % \section{Table of Contents}
